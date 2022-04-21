@@ -15,12 +15,16 @@ namespace RevitAPI5
     {
         private ExternalCommandData _commandData;
 
-        public DelegateCommand SelectCommand { get; }
+        public DelegateCommand PipeCommand { get; }
+        public DelegateCommand WallCommand { get; }
+        public DelegateCommand DoorCommand { get; }
 
         public MainViewViewModel(ExternalCommandData commandData)
         {
             _commandData = commandData;
-            SelectCommand = new DelegateCommand(OnSelectCommand);
+            PipeCommand = new DelegateCommand(OnPipeCommand);
+            WallCommand = new DelegateCommand(OnWallCommand);
+            DoorCommand = new DelegateCommand(OnDoorCommand);
         }
         public event EventHandler HideRequest;
         private void RaiseHideRequest()
@@ -34,17 +38,40 @@ namespace RevitAPI5
             ShowRequest?.Invoke(this, EventArgs.Empty);
         }
 
-        private void OnSelectCommand()
+        private void OnPipeCommand()
         {
             RaiseHideRequest();
 
-            Element oElement = SelectionUtils.PickObject(_commandData);
 
-            TaskDialog.Show("Сообщение", $"ID:{oElement.Id}");
+            Result oElement = SelectionUtils.Execute1(_commandData);
+
+            
+
+            RaiseShowRequest();
+        }
+        private void OnWallCommand()
+        {
+            RaiseHideRequest();
+
+
+            Result oElement = SelectionUtils.Execute2(_commandData);
+
+
+
+            RaiseShowRequest();
+        }
+        private void OnDoorCommand()
+        {
+            RaiseHideRequest();
+
+
+            Result oElement = SelectionUtils.Execute3(_commandData);
+
+
 
             RaiseShowRequest();
         }
 
-    
+
     }
 }

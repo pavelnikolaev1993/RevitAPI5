@@ -11,11 +11,11 @@
     <StackPanel>
         <Label Content="Выберите действие"
                Margin="5"/>
-        <Button Content="Количество труб" Command="{Binding SelectCommand}"
+        <Button Content="Количество труб" Command="{Binding PipeCommand}"
                 Margin="5"/>
-        <!--<Button Content="Обхём стен" Command="{Binding WallCommand}"
+        <Button Content="Обхём стен" Command="{Binding WallCommand}"
                 Margin="5"/>
         <Button Content="Количество дверей" Command="{Binding DoorCommand}"
-                Margin="5"/>-->
+                Margin="5"/>
     </StackPanel>
 </Window>

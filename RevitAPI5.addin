@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
 	<AddIn Type="Command">
-		<Assembly>"D:\RevitAPITrainig\RevitAPIFirstApp.dll"</Assembly>
+		<Assembly>"D:\RevitAPITrainig\RevitAPI5.dll"</Assembly>
 		<AddInId>38C7C08D-E89D-41C2-AA25-009912915C33</AddInId>
 		<FullClassName>RevitAPI5.Main</FullClassName>
 		<VendorId>ADSK</VendorId>
